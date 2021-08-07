@@ -1,0 +1,43 @@
+#!/usr/bin/python
+import psycopg2
+import os
+import logging
+import boto3
+
+
+db_host = os.environ['db_host']
+db_port = os.environ['db_port']
+db_name = os.environ['db_name']
+db_user = os.environ['db_user']
+db_pass = os.environ['db_pass']
+#db_table = os.environ['db_table']
+query_cmd = os.environ['db_query']
+
+#ssm = boto3.client('ssm')
+#parameter = ssm.get_parameter(Name=db_user, WithDecryption=True)
+#db_user = parameter['Parameter']['Value']
+
+#parameter = ssm.get_parameter(Name=db_pass, WithDecryption=True)
+#db_pass = parameter['Parameter']['Value']
+
+def make_conn():
+    conn = None
+    try:
+        conn = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (db_name, db_user, db_host, db_pass))
+    except:
+        print ("I am unable to connect to the database")
+    return conn
+
+
+def fetch_data(conn, query):
+    result = []
+    #print ("Now executing: ") + str(query)
+    cursor = conn.cursor()
+    cursor.execute(query)
+
+    raw = cursor.fetchall()
+    cursor.close()
+    for line in raw:
+        result.append(line)
+    return result
+

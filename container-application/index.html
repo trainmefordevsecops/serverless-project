@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Find Factorial</h2>
+<input type="text" id="num"/>
+<input type="button" value="Factorial" onclick="factorial()"/>
+
+
+<div id="answer"></div>
+
+<script language="javascript">
+
+function factorial() {
+
+var num = document.getElementById("num").value;
+var fact = 1, i = 1;
+
+while(i <= num) {
+	fact = fact * i;
+	i++;
+}
+
+document.getElementById("answer").innerHTML = fact;
+}
+</script>
+
+</body>
+</html>
