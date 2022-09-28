@@ -46,6 +46,7 @@ resource "aws_db_instance" "postgresdb" {
   multi_az                                   = "${var.multi_az}"
   backup_retention_period    = "${var.backup_retention_period}"
   vpc_security_group_ids       = [ "${aws_security_group.db.id}" ]
+  skip_final_snapshot       = "${var.skip_final_snapshot}"
 
   tags = {
     Name                     = "${var.env}-${var.project}"
