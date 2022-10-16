@@ -4,6 +4,7 @@ import os
 import logging
 import boto3
 import sys,argparse,csv
+import time
 
 db_host = os.environ['db_host']
 db_port = os.environ['db_port']
@@ -22,6 +23,7 @@ query_cmd = os.environ['db_query']
 #db_pass = parameter['Parameter']['Value']
 
 
+
 bucket =  os.environ['bucket']
 file_name = 'test.csv'
 
@@ -37,7 +39,8 @@ with open ('/tmp/test.csv') as csv_file:
                 print(value_id)
                 print(value_name)
 
-query_cmd = query_cmd + "values" + "(" +value_id+ "," + "'"+value_name+"'" +")"
+#query_cmd = query_cmd + "values" + "(" +value_id+ "," + "'"+value_name+"'" +")"
+query_cmd = query_cmd 
 
 
 #("("+str(value_id)+ "," + "'"+str(value_name)+"'"+")")
@@ -57,7 +60,11 @@ def fetch_data(conn, query):
     result = []
     #print ("Now executing: ") + str(query)
     cursor = conn.cursor()
-     
+
+    #createtable = "CREATE TABLE IF NOT EXISTS app_user (id integer NOT NULL DEFAULT '1',name varchar(40))"
+    #cursor.execute(createtable)     
+    #time.sleep(60) 
+
     cursor.execute(query)
     conn.commit()
     cursor.execute("select * from app_user")
