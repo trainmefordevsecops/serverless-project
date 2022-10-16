@@ -116,7 +116,7 @@ variable "s3_bucket" {
 
 variable "db_host"  {
  type = "string"
- default = "dev-my.zzzzzz.ap-south-1.rds.amazonaws.com"
+ default = "dev-my.c13jmuerptqv.ap-south-1.rds.amazonaws.com"
 }
 variable "db_user"  {
  type = "string"
@@ -134,10 +134,10 @@ variable "db_name"  {
  type = "string"
  default = "myappdb"
 }
-#variable "db_query"   { default = "CREATE TABLE IF NOT EXISTS app_user (id integer NOT NULL DEFAULT '1',name varchar(40))"}
+variable "db_query"   { default = "CREATE TABLE IF NOT EXISTS app_user (id integer NOT NULL DEFAULT '1',name varchar(40))"}
 #variable "db_query" { default = "select * from app_user;"}
-variable "db_query" { default = "insert into app_user(id,name)"}
-variable "vpc"       { default = "zzzzz" }
+#variable "db_query" { default = "insert into app_user(id,name)"}
+variable "vpc"       { default = "vpc-0dc331de763c55290" }
 
 variable "s3_resources" {
   description = "S3 resources to be used by application"

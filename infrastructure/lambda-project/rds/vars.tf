@@ -13,7 +13,7 @@ variable "backup_retention_period"      { default = "0"                         
 variable "dbname"                                               { default = "myappdb"                           }
 variable "username"                                     { default = "myuser"                           }
 variable "password"                                     { default = "Mypassword"                        }
-variable "vpc"       { default = "vpc-0260191f9d8c9b30b" }
+variable "vpc"       { default = "vpc-0ca3293aa0a11b4bf" }
 #variable "dbsubnet"  { 
 #type        = list(string)
 #default = ["subnet-02d9d493ce59fb57e,subnet-0b730c30c1a506b53"] 
@@ -33,7 +33,7 @@ variable "create" {
 variable "subnet_ids" {
   type        = "list"
   description = "A list of VPC subnet IDs"
-  default     = ["subnet-02d9d493ce59fb57e","subnet-0b730c30c1a506b53"]
+  default     = ["subnet-0bbfe5f59e12b08d6","subnet-0111fbe2cc685390a"]
 }
 
 variable "tags" {

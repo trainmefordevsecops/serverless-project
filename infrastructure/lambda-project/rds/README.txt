@@ -4,5 +4,3 @@ terraform13 init
 terraform13 plan
 terraform13 apply
 ###########################################################
-
-need to update vpc, subnetid and 
